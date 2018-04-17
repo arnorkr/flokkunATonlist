@@ -72,7 +72,7 @@ def calculate_features(input_file, genre):
     return output_data
 
 # Collect features along with category index into a matrix
-DATA = np.zeros((100*NUMCAT, 35833), np.float64)
+DATA = np.zeros((100*NUMCAT, 35833))
 
 for i in range(NUMCAT):
     for j in range(100):
@@ -81,8 +81,7 @@ for i in range(NUMCAT):
         else:
             zeros = ".000"
         fileName = "../waves/waves/"+GENRES[i]+zeros+str(j)+".wav"
-        DATA[j] = calculate_features(fileName, i)
+        DATA[100*i+j] = calculate_features(fileName, i)
 
 np.save("../data/data_"+str(NUMCAT)+"_categories.npy", DATA)
-
 print("Done!")
