@@ -1,4 +1,4 @@
-./data
-./waves
+data/
+waves/
 *.wav
 *.dat
